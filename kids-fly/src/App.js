@@ -8,7 +8,7 @@ import ScheduleNew from  '/Users/nadiachilds/Desktop/front-end/kids-fly/src/comp
 function App() {
   return (
     <div className="App">
-   <Route path ="/GetUser" component={GetUserById} />
+   <Route path ="/GetUser/" component={GetUserById} />
    <Route path ="/UserRegister" component={UserRegister} />
    <Route path="/ScheduleNew" component={ScheduleNew} />
     </div>

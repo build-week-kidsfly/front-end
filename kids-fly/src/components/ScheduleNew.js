@@ -11,7 +11,7 @@ const ScheduleNew = ({ errors, touched, values, status }) => {
    return (
        <div>
            <h1> Your Next Adventure</h1>
-<img className ="cutekid" src={cutekidairplane} alt="workplz"></img>
+<img className ="cutekid" src={cutekidairplane} alt="child-in-front-airplane"></img>
 <p id="bonvoyage">Where are we headed? Just fill us in on some details about your next adventure and we'll do the rest. </p>
            <br />
            <Form>
@@ -20,7 +20,7 @@ const ScheduleNew = ({ errors, touched, values, status }) => {
                    className="field"
                    component="input"
                    type="text"
-                   name="Airport"
+                   name="airport"
                    placeholder="airport"
                />
                {touched.airport && errors.airport && (
@@ -38,7 +38,7 @@ const ScheduleNew = ({ errors, touched, values, status }) => {
                    <p className="error">{errors.to}</p>
                )}
                <br />  <br />
-             Number of cqhildren traveling:<br />
+             Number of children traveling:<br />
                <Field
                    className="field"
                    component="input"
@@ -53,7 +53,7 @@ const ScheduleNew = ({ errors, touched, values, status }) => {
               <Field className="field"
               component="input"
               type="contact-info"
-              name="email-address"
+              name="email"
               placeholder="email"
               />
               {touched.email && errors.email && (
@@ -63,7 +63,7 @@ const ScheduleNew = ({ errors, touched, values, status }) => {
               Phone number:<br />
               <Field className="field"
               component="input"
-              type="email"
+              type="number"
               name="phone"
               placeholder="ex:(555-555-5555)"
               />
@@ -101,10 +101,17 @@ const ScheduleNew = ({ errors, touched, values, status }) => {
    )
 }
 const formikHOC = withFormik({
-   mapPropsToValues({ username, password}) {
+   mapPropsToValues({ username, password,airport,to,email,phone,dept}) {
        return {
            username: username || "",
-           password: password || ""
+           password: password || "",
+           airport: airport   || "",
+           to:       to       ||"",
+           email: email       || "",
+           phone: phone       || "",
+           dept: dept         || "",
+           
+
        };
    },
    validationSchema: Yup.object().shape({
@@ -115,9 +122,12 @@ const formikHOC = withFormik({
    
            
    }),
-handleSubmit(values, { setStatus, resetForm }) {
-       setStatus(values);
+handleSubmit(values) {
+       
+    
+
    }
 });
 const UserFormWithFormik = formikHOC(ScheduleNew);
 export default UserFormWithFormik;
+

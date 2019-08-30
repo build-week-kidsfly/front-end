@@ -4,8 +4,13 @@ import * as Yup from "yup";
 import axios from "axios";
 import cutekidairplane  from  "./cutekidairplane.jpg";
 import data from '/Users/nadiachilds/Desktop/front-end/kids-fly/src/components/data.js';
+import GetUser from '/Users/nadiachilds/Desktop/front-end/kids-fly/src/components/GetUser.js'
 import '../App.css';
 
+const registerFunc = (username,password,firstname,lastname,email,phone) => {
+data.push(username,password,firstname,lastname,email,phone)
+console.log(username,password,firstname,lastname,email,phone)
+}
 
 const UserRegister = ({ errors, touched, values, status }) => {
    const [state, setState] = useState([]);
@@ -15,7 +20,7 @@ const UserRegister = ({ errors, touched, values, status }) => {
            <h1> New User </h1>
 <img className ="cutekid" src={cutekidairplane} alt="workplz"></img>
            <br />
-           <Form>   Username:
+           <Form>   Username:<br />
                <Field
                    className="field"
                    component="input"
@@ -26,7 +31,7 @@ const UserRegister = ({ errors, touched, values, status }) => {
                {touched.username && errors.username && (
                    <p className="error">{errors.username}</p>
                )}
-               <br /> <br />Password:
+               <br /> <br />Password: <br />
                <Field
                    className="field"
                    component="input"
@@ -37,43 +42,43 @@ const UserRegister = ({ errors, touched, values, status }) => {
                {touched.password && errors.password && (
                    <p className="error">{errors.password}</p>
                )}
-               <br />  <br /> First name:
+               <br />  <br /> First name:<br />
                <Field
                    className="field"
                    component="input"
-                   type="FirstN"
-                   name="first_name"
+                   type="text"
+                   name="firstname"
                    placeholder="First name"
                />
                {touched.firstN && errors.firstN && (
                    <p className="error">{errors.firstN}</p>
                )}
-              <br/> <br/> Last name:
+              <br/> <br/> Last name: <br />
               <Field className="field"
               component="input"
-              type="LastN"
-              name="last_name"
+              type="text"
+              name="lastname"
               placeholder="Last name"
               />
               {touched.LastN && errors.lastN && (
                   <p className="error">{errors.lastN}</p>
               )}
-              <br/><br/>
+              <br/><br/> Email: <br />
               <Field className="field"
               component="input"
               type="email"
-              name="email@ddress"
+              name="email"
               placeholder="example@gmail.com"
               />
               {touched.LastN && errors.lastN && (
                   <p className="error">{errors.lastN}</p>
               )}
-              <br/><br/>
+              <br/><br/> Phone: <br />
               <Field className="phone"
               component="input"
-              type="#"
-              name="phone#"
-              placeholder="Phone number"
+              type="number"
+              name="phone"
+              placeholder="ex:(555-555-5555)"
               />
               {touched.LastN && errors.lastN && (
                   <p className="error">{errors.lastN}</p>
@@ -90,7 +95,8 @@ const UserRegister = ({ errors, touched, values, status }) => {
                <div>
                    <br />
                    <h1>Welcome, {status.username}</h1>
-                
+         
+           
            
                        
                  
@@ -101,11 +107,20 @@ const UserRegister = ({ errors, touched, values, status }) => {
 }
 
 const formikHOC = withFormik({
-   mapPropsToValues({ username, password}) {
+   mapPropsToValues({ username, password, email, firstname,lastname,phone}) {
        return {
       
            username: username || "",
            password: password || "",
+           email: email       || "",
+           first_name: firstname || "",
+           last_name: lastname || "",
+           phone: phone || "",
+           
+           
+          
+
+
           
        };
        
@@ -120,7 +135,10 @@ const formikHOC = withFormik({
    }),
 handleSubmit(values, { setStatus, resetForm }) {
        setStatus(values);
+      registerFunc(values.username,values.password,values.firstname,values.lastname,values.email,values.phone)
+
    }
 });
+{}
 const UserFormWithFormik = formikHOC(UserRegister);
 export default UserFormWithFormik;
