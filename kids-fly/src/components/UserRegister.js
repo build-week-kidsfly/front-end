@@ -18,7 +18,7 @@ const UserRegister = ({ errors, touched, values, status }) => {
    return (
        <div>
            <h1> New User </h1>
-<img className ="cutekid" src={cutekidairplane} alt="workplz"></img>
+<img className ="cutekid" src={cutekidairplane} alt="smiling-chiild"></img>
            <br />
            <Form>   Username:<br />
                <Field

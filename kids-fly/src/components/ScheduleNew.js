@@ -1,77 +1,80 @@
 import { withFormik, Form, Field } from "formik";
 import React, { useEffect, useState } from 'react';
 import * as Yup from "yup";
-import axios from "axios";
 import cutekidairplane  from  "./cutekidairplane.jpg";
 import '../App.css';
+//<img className ="cutekid" src={cutekidairplane} alt="child-in-front-airplane"></img>
 
 const ScheduleNew = ({ errors, touched, values, status }) => {
    const [state, setState] = useState([]);
  
    return (
        <div>
+           <div className="navbar">
+               <nav> KidsFly</nav> <span id="menu-items"><nav className="nav2">Home </nav> <nav className="nav2">Profiles</nav> <nav className="nav2">Request Form</nav> <nav className="nav2">Admin</nav> <nav className="nav2">Logout </nav> </span>
+           </div>
            <h1> Your Next Adventure</h1>
-<img className ="cutekid" src={cutekidairplane} alt="child-in-front-airplane"></img>
 <p id="bonvoyage">Where are we headed? Just fill us in on some details about your next adventure and we'll do the rest. </p>
            <br />
            <Form>
-           Airport:<br />
+           <p>Airport:<br /></p>
           <Field 
                    className="field"
                    component="input"
                    type="text"
                    name="airport"
-                   placeholder="airport"
+                   placeholder="Airport..."
                />
                {touched.airport && errors.airport && (
                    <p className="error">{errors.airport}</p>
                )}
-               <br /> <br /> Destination:<br />
+               
+               <p>Destination: </p> 
                <Field
                    className="field"
                    component="input"
                    type="to"
                    name="to"
-                   placeholder="destination"
+                   placeholder="Destination..."
                />
                {touched.to && errors.to && (
                    <p className="error">{errors.to}</p>
                )}
-               <br />  <br />
-             Number of children traveling:<br />
+              
+             <p>Number of children traveling: </p> 
                <Field
                    className="field"
                    component="input"
                    type="question"
                    name="kiddos"
-                   placeholder="number of kids"
+                   placeholder="Number of kids..."
                />
                {touched.kiddos && errors.kiddos && (
                    <p className="error">{errors.kiddos}</p>
                )}
-              <br/> <br/>Email Address:<br />
+              <p> Email Address: </p>
               <Field className="field"
               component="input"
               type="contact-info"
               name="email"
-              placeholder="email"
+              placeholder="Email..."
               />
               {touched.email && errors.email && (
                   <p className="error">{errors.email}</p>
               )}
-              <br/><br/>
-              Phone number:<br />
+            
+             <p> Phone number: </p>
               <Field className="field"
               component="input"
               type="number"
               name="phone"
-              placeholder="ex:(555-555-5555)"
+              placeholder="1-(555)-555-5555"
               />
               {touched.phone && errors.phone && (
                   <p className="error">{errors.phone}</p>
               )}
-              <br/><br/>
-               Departure Time:<br />
+             
+              <p> Departure Time: </p>
               <Field className="field"
               component="input"
               type="time"
@@ -80,22 +83,20 @@ const ScheduleNew = ({ errors, touched, values, status }) => {
               {touched.dept && errors.dept && (
                   <p className="error">{errors.dept}</p>
               )}
-              <br/><br/>
-               <button
+                <br/>
+                <br/>
+               <button id="custom-btn"
                    type="submit"
                >
                    Submit
                </button>
-               <hr />
+             
            </Form>
            {status && status.username && (
                <div>
-                   <br />
-                   <h1>Welcome, {status.username}</h1>
-           
-                       )
-                 
-               </div>
+                
+                  
+                    </div>
            )}
        </div>
    )

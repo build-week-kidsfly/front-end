@@ -11,14 +11,16 @@ const data = [
     airport:'My airport: Denver',
     trip:'true',
     trip_destination:"Destination: Paris",
-    airline:"SouthWest",
-    departure: "7:30",
+    airline:"Airline: SouthWest",
+    departure: "Departure: 7:30",
     children:"Children in party: 1",
-    flight_msg:"Upcoming trips",
+    flight_msg:"Upcoming Trips:",
     message:"No Trips Scheduled",
     no_trip:"",
     del:"Delete Trip",
     arr:"Arriving",
+ 
+    
   },
   {
     username: "Jack",

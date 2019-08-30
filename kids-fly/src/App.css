@@ -38,12 +38,145 @@
   border-radius:10px;
 }
 
+.wing-img{
+  height:450px;
+  width:90%;
+}
 
 #bonvoyage {
 font-style:italic;
+text-align:center;
+font-size:1rem;
+color:  #28a745;;
+padding-right: 25px;
+padding-left: 25px;
+box-sizing: border-box;
 }
 
-.card{
-
-font-size:14px;
+.card {
+  background:#ffc107;
+  font-size:14px;
+ width:60%;
+ box-sizing: border-box;
+margin:0 auto;
+border-radius: .25rem
 }
+
+.pupper {
+width:20%;
+height:20%;
+margin:5% 0;
+border-radius:100%;
+
+
+}
+
+.button {
+  color: #fff;
+background-color: #28a745;
+border-color: #28a745;
+display: block;
+width: 40%;
+text-align: center;
+border: 1px solid transparent;
+padding: .375rem .75rem;
+font-size: 1rem;
+line-height: 1.5;
+border-radius: .25rem;
+text-decoration: none !important;
+cursor: pointer;
+height: calc(1.5em + .75rem + 2px);
+margin: 0 auto;
+
+}
+#sched {
+  width:60%;
+  margin:0 auto;
+  text-decoration: none !important;
+  
+}
+
+h1 {
+font-family: sans-serif;
+font-weight:500;}
+h2 {
+  font-weight:300;
+  font-family: sans-serif;
+}
+#del {
+  background:red;
+}
+
+.bold {
+  font-size:23px;
+  font-weight:400;
+}
+ p {
+   font-family:sans-serif;
+   margin-bottom:5px;
+   font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+ }
+ #custom-btn {
+width:50%;
+   color: #fff;
+   background-color: #28a745;
+   border-color: #28a745;
+   text-align: center;
+border: 1px solid transparent;
+padding: .375rem .75rem;
+font-size: 1rem;
+line-height: 1.5;
+border-radius: .25rem;
+cursor: pointer;
+height: calc(1.5em + .75rem + 2px);
+ }
+
+ .field {
+  display: block;
+  width: 60%;
+  height: calc(1.5em + .75rem + 2px);
+  font-family:1rem;
+  padding: .375rem .75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  margin:0 auto;
+ }
+
+ ::-webkit-input-placeholder {
+
+  font-size:1rem;
+}
+
+.navbar {
+  background-color: #ffc107!important;
+ padding: 1rem;
+ font-size:1.2rem;
+display:flex;
+}
+
+#menu-items{
+display:flex;
+flex-direction: row;
+color:rgba(0,0,0,0.5);
+margin-left:60rem;
+  
+}
+
+
+  .nav2 {
+  
+  padding-left:10px;
+  font-size:1rem;
+  text-align: left !important;
+    }
+    .LinkStyle {
+text-decoration: none;
+    }
