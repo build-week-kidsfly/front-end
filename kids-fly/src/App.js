@@ -1,46 +1,44 @@
-import express from "express";
-import setGeneraliddleware from "./middleware/generalMiddleware";
-import errorHandler from "./middleware/errorHandler";
-import verifyToken from "./middleware/verifyToken";
-import * as user from "./controllers/user";
-import * as trip from "./controllers/trip";
-import * as login from "./controllers/login";
-import path from "path";
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-const server = express();
-setGeneraliddleware(server);
+import LoginForm from './components/LoginForm/LoginForm';
+import ProfileContainer from './components/ProfileContainer';
+import RequestForm from './components/RequestForm';
 
-server.use(express.static(path.resolve(path.join(__dirname, "../public"))));
-server.get("/", (__, res) => res.sendFile("index.html"));
+import PrivateRoute from './utilities/PrivateRoute/PrivateRoute';
+import ProfileForm from './components/ProfileForm';
+import Navigation from './components/Page/Navigation';
 
-//login
-server.route("/login").post(login.login);
+import SignUpForm from './components/SignUpForm/SignUpForm';
+import AdminPostAirport from './components/AdminPostAirport';
+import AdminPage from './components/AdminPage';
+import ProfilePage from './components/ProfilePage';
+import './App.css';
 
-server
-  .route("/users")
-  .get(verifyToken, user.getGeneral)
-  .post(user.postNew);
+function App() {
+  return (
+    <Router>
+      <div className='App'>
+        <Route exact path='/' component={LoginForm} />
+        <Route exact path='/signup' component={SignUpForm} />
+        <PrivateRoute path='/requestform' component={RequestForm} />
+        <PrivateRoute exact path='/profileForm' component={ProfileForm} />
+        <PrivateRoute path='/navigation' component={Navigation} />
+        <PrivateRoute path='/admin' component={AdminPage} />
+        <PrivateRoute path='/profile' component={ProfilePage} />
 
-//Auth required beyond this line
-server.use(verifyToken);
-
-server
-  .route("/trips")
-  .get(trip.getGeneral)
-  .post(trip.postNew);
-
-server
-  .route("/users/:id")
-  .get(user.getGeneral)
-  .put(user.put)
-  .delete(user.deleteU);
-
-server
-  .route("/trips/:id")
-  .get(trip.getGeneral)
-  .put(trip.put)
-  .delete(trip.deleteT);
-
-// server.use(errorHandler);
-
-export default server;
+        <PrivateRoute
+          exact
+          path='/adminPostAirport'
+          component={AdminPostAirport}
+        />
+        <PrivateRoute
+          exact
+          path='/profilecontainer'
+          component={ProfileContainer}
+        />
+      </div>
+    </Router>
+  );
+}
+export default App;
