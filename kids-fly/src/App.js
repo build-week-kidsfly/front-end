@@ -14,9 +14,19 @@ import AdminPostAirport from './components/AdminPostAirport';
 import AdminPage from './components/AdminPage';
 import ProfilePage from './components/ProfilePage';
 import './App.css';
-
+import { Route } from 'react-router-dom';
+import UserRegister from '/Users/nadiachilds/Desktop/front-end/kids-fly/src/components/UserRegister.js'
+import GetUserById from '/Users/nadiachilds/Desktop/front-end/kids-fly/src/components/GetUser.js'
+import ScheduleNew from  '/Users/nadiachilds/Desktop/front-end/kids-fly/src/components/ScheduleNew.js';
 function App() {
   return (
+
+    <div className="App">
+   <Route path ="/GetUser/" component={GetUserById} />
+   <Route path ="/UserRegister" component={UserRegister} />
+   <Route path="/ScheduleNew" component={ScheduleNew} />
+    </div>
+    
     <Router>
       <div className='App'>
         <Route exact path='/' component={LoginForm} />
@@ -39,6 +49,7 @@ function App() {
         />
       </div>
     </Router>
+
   );
 }
 export default App;
