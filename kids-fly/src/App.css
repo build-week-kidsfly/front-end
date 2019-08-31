@@ -79,7 +79,7 @@ display: block;
 width: 40%;
 text-align: center;
 border: 1px solid transparent;
-padding: .375rem .75rem;
+padding-bottom:5px;
 font-size: 1rem;
 line-height: 1.5;
 border-radius: .25rem;
@@ -87,7 +87,6 @@ text-decoration: none !important;
 cursor: pointer;
 height: calc(1.5em + .75rem + 2px);
 margin: 0 auto;
-
 }
 #sched {
   width:60%;
@@ -179,4 +178,11 @@ margin-left:60rem;
     }
     .LinkStyle {
 text-decoration: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    .nav2:hover {
+      color:rgba(0,0,0,0.7)
     }

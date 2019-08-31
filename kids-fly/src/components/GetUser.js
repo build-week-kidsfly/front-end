@@ -7,10 +7,9 @@ import { Link } from 'react-router-dom';
  import wing from './wing.jpg';
  import '../App.css';
 
-
-
-
-
+function myFunc() {
+alert("You've clicked");
+}
 function GetUserById() {
   const name = "Michael";
   return (
@@ -40,9 +39,9 @@ function GetUserById() {
     <h2>  {info.trip === "true" ? info.airline: info.no_trip } </h2>
     <h2>   {info.trip === "true" ? info.departure: info.no_trip}  </h2>
     <h2> {info.trip === "true" ? info.children: info.no_trip } </h2>
-    <button className="button" id="del" OnClick={info.trip === "false"}>{info.trip === "true" ? info.del: info.del} </button>
+   <a href="https://kids-fly-fe.netlify.com"> <button className="button" id="del"  onClick={(e) => { if (window.alert('You have deleted your trip information and will now be logged out')) this.deleteItem(e) } }>{info.trip === "true" ? info.del: info.del} </button> </a>
     <br/>
-    <button className="button" > {info.trip === "true" ? info.arr: info.no_trip } </button>
+    <button className="button" onClick={(e) => { if (window.alert('We look forward to assisting your family soon.')) this.deleteItem(e) } }> {info.trip === "true" ? info.arr: info.no_trip } </button>
     </div>
     <br/>
   <br/>

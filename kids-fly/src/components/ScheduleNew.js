@@ -2,6 +2,7 @@ import { withFormik, Form, Field } from "formik";
 import React, { useEffect, useState } from 'react';
 import * as Yup from "yup";
 import cutekidairplane  from  "./cutekidairplane.jpg";
+import { Link } from 'react-router-dom';
 import '../App.css';
 //<img className ="cutekid" src={cutekidairplane} alt="child-in-front-airplane"></img>
 
@@ -85,11 +86,11 @@ const ScheduleNew = ({ errors, touched, values, status }) => {
               )}
                 <br/>
                 <br/>
-               <button id="custom-btn"
-                   type="submit"
-               >
+               <Link to="/GetUser"><button id="custom-btn"
+                   type="submit" onClick={(e) => { if (window.alert('Bon Voyage! Your account will be updated with your newly added trip information within 24 hours')) this.deleteItem(e) } }>
+               
                    Submit
-               </button>
+               </button> </Link>
              
            </Form>
            {status && status.username && (
